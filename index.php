@@ -1,3 +1,10 @@
+<?php 
+
+		require('config/connexion.php');
+        require('controllers/login/loginController.php'); 
+?>
+
+
 <html lang="en">
 
 <head>
@@ -9,9 +16,7 @@
 
   <!-- Basic Page Needs
         ================================================== -->
-  <title>Concur</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Courseplus Template</title>  
   <meta name="description" content="Courseplus is - Professional A unique and beautiful collection of UI elements">
 
   <!-- icons
@@ -32,10 +37,8 @@
     }
   </style>
 
-
 </head>
 <body>
-
 
   <div id="wrapper" class="flex flex-col justify-between h-screen">
 
@@ -46,9 +49,7 @@
 
               <div class="flex items-center lg:justify-between justify-around">
 
-                  <a href="index.html">
-                      <img src="../assets/images/logo.png" alt="" class="w-32">
-                  </a>
+                
 
                   <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
                       <a href="form-login.html" class="py-3 px-4">Login</a>
@@ -63,71 +64,59 @@
 
       <!-- Content-->
       <div>
-          <div class="lg:p-12 max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
-              <form action="create.php" method="post">
-                      <h1 class="lg:text-2xl text-xl font-semibold mb-6"> Register </h1>
 
-                      <div class="grid lg:grid-cols-2 gap-3">
-                      <div>
-                          <label class="mb-0" for="firstname"> First Name </label>
-                          <input type="text" placeholder="Your Name"  id="firstname" name= "firstname" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
-                      </div>
-                      <div>
-                          <label class="mb-0" for="lastname"> Last  Name </label>
-                          <input type="text" placeholder="Last  Name"  id="lastname" name="lastname" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
-                      </div>
-                  </div>
-                  <div>
-                      <label class="mb-0" for="username"> Username </label>
-                      <input type="text" placeholder="Username" id="username" name="username"class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
-                  </div>
-                  <div>
-                      <label class="mb-0" for="email"> Email Address </label>
-                      <input type="email" placeholder="Info@example.com" id="email" name="email" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
-                  </div>
-                  <div>
-                      <label class="mb-0" for="password"> Password </label>
-                      <input type="password" placeholder="******" id="pass" name="pass" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
-                  </div>
-                  <div class="grid lg:grid-cols-2 gap-3">
-                      <div>
-                        
+        <div class="lg:p-12 max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
+            <form class="lg:p-10 p-6 space-y-3 relative bg-white shadow-xl rounded-md"   action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+                <h1 class="lg:text-2xl text-xl font-semibold mb-6"> Login </h1>
 
-                      </div>
-                      <div>
-                          <label class="mb-0" for="phone"> Phone: optional  </label>
-                          <input type="text" placeholder="+543 5445 0543" id="phone" name= "phone" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
-                    
-                      </div>
-                  </div>
+                <div>
+                    <label class="mb-0" for="username"> Username </label>
+                    <input type="text" id="username"   name="username" placeholder="Username" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
+                </div>
                 
-                  <div >
-                      <div>
-                      <label class="mb-0" for="gender"> gender  </label>
-                          <input type="text" id="gender" name= "gender" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
+                <div>
+                    <label class="mb-0" for="password"> Password </label>
+                    <input type="password" id="password"  name="password" placeholder="******" class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full">
+                </div>
 
-                      </div>
-                      <div>
+                <div>
+                    <button type="submit" name="login-submit" class="bg-blue-600 font-semibold p-2.5 mt-5 rounded-md text-center text-white w-full">
+                        Get Started</button>
+                </div>
 
-                  </div>
-                  <div class="checkbox">
-                      <input type="checkbox" id="chekcbox1" checked="">
-                      <label for="chekcbox1"><span class="checkbox-icon"></span> I agree to the <a href="pages-terms.html" target="_blank" class="uk-text-bold uk-text-small uk-link-reset"> Terms and Conditions </a>
-                      </label>
-                  </div>
-
-                  <div>
-                      <button onclick="form-login.php" type="submit" name="valider" class="bg-blue-600 font-semibold p-2 mt-5 rounded-md text-center text-white w-full">
-                          Get Started</button>
-                  </div>
-              </form>
+                <div class="uk-heading-line uk-text-center py-5"><span> Or, connect with </span></div>
 
 
-          </div>
+                <a href="/login/facebook" class="hidden relative lg:flex items-center justify-start w-full py-3 mt-2 overflow-hidden text-lg font-medium text-white bg-indigo-600 rounded-lg cursor-pointer">
+                    <span class="absolute left-0 flex items-center justify-center w-16 h-full mr-3 fill-current">
+                        <svg viewBox="0 0 24 24" class="left-0 w-8 h-8 ml-1 text-white fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z"></path></svg>
+                    </span>
+                    <span class="inline-block pl-5 text-base text-center w-full">Signup with Facebook</span>
+                </a>
+
+            
+                <div class="flex items-center space-x-2 justify-center">
+                    <a href="#">
+                        <ion-icon name="logo-facebook" class="p-2 rounded-full text-2xl bg-gray-100 text-blue-600"></ion-icon>
+                    </a>
+                    <a href="#">
+                        <ion-icon name="logo-twitter" class="p-2 rounded-full text-2xl bg-gray-100 text-indigo-500"></ion-icon>
+                    </a>
+                    <a href="#">
+                        <ion-icon name="logo-github" class="p-2 rounded-full text-2xl bg-gray-100"></ion-icon>
+                    </a>
+                </div>
+             
+
+
+
+            </form>
+
+        </div>
+    
       </div>
       
       <!-- Footer -->
-
       <div class="lg:mb-5 py-3 uk-link-reset">
           <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
               <div class="flex space-x-2 text-gray-700 uppercase">
@@ -142,28 +131,19 @@
 
   </div>
 
-  <!-- Javascript
-  ================================================== -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
-    <script src="../assets/js/uikit.js"></script>
-  <script src="../assets/js/tippy.all.min.js"></script>
-  <script src="../assets/js/simplebar.js"></script>
-  <script src="../assets/js/custom.js"></script>
-  <script src="../assets/js/bootstrap-select.min.js"></script>
-  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
+
+<!-- Javascript
+================================================== -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
+    <script src="../assets/js/uikit.js"></script>
+<script src="../assets/js/tippy.all.min.js"></script>
+<script src="../assets/js/simplebar.js"></script>
+<script src="../assets/js/custom.js"></script>
+<script src="../assets/js/bootstrap-select.min.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>
-</html>>
-<?php
 
-  if(!empty($_POST))
-  {
-    if (
-        isset($_POST["fistname"], $_POST["lastname"], $_POST["username"], $_POST["email"], $_POST["pass"], $_POST["gender"], $_POST["phone"]) && !empty($_POST["firstname"])&& !empty($_POST["lastname"])&& !empty($_POST["username"])&& !empty($_POST["email"])&& !empty($_POST["pass"])&& !empty($_POST["gender"])&& !empty($_POST["phone"]))
-  {
-    }else{
-      die("le formulaire incomplet");
-  }}
-?>
+</html>
